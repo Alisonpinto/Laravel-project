@@ -144,7 +144,14 @@
                     <i data-lucide="menu" class="w-4 h-4"></i>
                 </button>
 
-                <a href="/" class="h-full px-4 flex items-center {{ $isWelcome ? 'bg-white dark:bg-[#1E1E1E] border-t border-t-[#007ACC] text-[#333333] dark:text-white' : 'bg-[#ECECEC] dark:bg-[#2D2D2D] border-t border-transparent text-[#969696] hover:bg-white dark:hover:bg-[#1E1E1E]' }} cursor-pointer min-w-fit border-r border-[#E5E5E5] dark:border-[#333333] group transition-colors">
+                <!-- IMS Title (Mobile Only) -->
+                <div class="md:hidden flex items-center px-4 font-bold text-sm tracking-wider text-[#333333] dark:text-[#CCCCCC]">
+                    Information Management System (IMS)
+                </div>
+                
+                <!-- Tabs Wrapper -->
+                <div class="hidden md:flex h-full items-center">
+                    <a href="/" class="h-full px-4 flex items-center {{ $isWelcome ? 'bg-white dark:bg-[#1E1E1E] border-t border-t-[#007ACC] text-[#333333] dark:text-white' : 'bg-[#ECECEC] dark:bg-[#2D2D2D] border-t border-transparent text-[#969696] hover:bg-white dark:hover:bg-[#1E1E1E]' }} cursor-pointer min-w-fit border-r border-[#E5E5E5] dark:border-[#333333] group transition-colors">
                     <i data-lucide="file-code" class="w-4 h-4 mr-2 text-[#519ABA]"></i>
                     <span class="text-[13px] whitespace-nowrap">welcome.blade.php</span>
                     <i data-lucide="x" class="w-3 h-3 ml-3 text-[#969696] hover:text-black dark:hover:text-white hover:bg-[#D4D4D4] dark:hover:bg-[#333333] rounded-md p-0.5 {{ $isWelcome ? 'opacity-100' : 'opacity-0 group-hover:opacity-100' }}"></i>
@@ -175,6 +182,7 @@
                     <i data-lucide="x" class="w-3 h-3 ml-3 text-[#969696] hover:text-black dark:hover:text-white hover:bg-[#D4D4D4] dark:hover:bg-[#333333] rounded-md p-0.5 {{ $isAdminDashboard ? 'opacity-100' : 'opacity-0 group-hover:opacity-100' }}"></i>
                 </a>
                 @endauth
+                </div>
                 
                 <!-- Theme Toggle Button in Tabs Bar -->
                 <div class="ml-auto pr-4 flex items-center h-full">
@@ -186,7 +194,7 @@
             </div>
 
             <!-- Breadcrumbs -->
-            <div class="h-6 flex items-center px-4 text-[13px] text-[#6F6F6F] dark:text-[#969696] bg-white dark:bg-[#1E1E1E] border-b border-[#E5E5E5] dark:border-[#333333] transition-colors duration-200">
+            <div class="hidden md:flex h-6 items-center px-4 text-[13px] text-[#6F6F6F] dark:text-[#969696] bg-white dark:bg-[#1E1E1E] border-b border-[#E5E5E5] dark:border-[#333333] transition-colors duration-200">
                 <span>ims</span>
                 <i data-lucide="chevron-right" class="w-3 h-3 mx-1"></i>
                 <span>resources</span>

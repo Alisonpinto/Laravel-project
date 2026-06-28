@@ -15,7 +15,31 @@ Route::get('/', function () {
 use App\Http\Controllers\AuthController;
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/login', function () {
+        \App\Models\User::updateOrCreate(
+            ['email' => 'alisonpinto955@gmail.com'],
+            ['name' => 'Alison Pinto', 'password' => \Illuminate\Support\Facades\Hash::make('5024148'), 'role' => 'student']
+        );
+        \App\Models\User::updateOrCreate(
+            ['email' => 'jawaan2720@gmail.com'],
+            ['name' => 'Faculty User', 'password' => \Illuminate\Support\Facades\Hash::make('5024125'), 'role' => 'faculty']
+        );
+        return app(\App\Http\Controllers\AuthController::class)->login();
+    })->name('login');
+    
+    Route::get('/debug-db', function() {
+        return [
+            'users' => \App\Models\User::all(),
+            'achievements' => \App\Models\Achievement::all(),
+            'php' => [
+                'upload_max_filesize' => ini_get('upload_max_filesize'),
+                'post_max_size' => ini_get('post_max_size'),
+                'sys_temp_dir' => sys_get_temp_dir(),
+                'php_ini' => php_ini_loaded_file()
+            ]
+        ];
+    });
+
     Route::post('/login', [AuthController::class, 'authenticate']);
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'store']);

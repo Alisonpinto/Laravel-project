@@ -54,26 +54,24 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Proof (PDF/Image)</label>
-                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-[#333333] border-dashed rounded-xl bg-gray-50 dark:bg-[#1E1E1E] hover:bg-gray-100 dark:hover:bg-[#333333]/50 transition-colors">
-                    <div class="space-y-1 text-center">
+                <label for="file" id="drop-zone" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-[#333333] border-dashed rounded-xl bg-gray-50 dark:bg-[#1E1E1E] hover:bg-gray-100 dark:hover:bg-[#333333]/50 transition-colors cursor-pointer relative">
+                    <div class="space-y-1 text-center pointer-events-none">
                         <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <div class="flex flex-col text-sm text-gray-600 dark:text-gray-400 justify-center items-center">
                             <div class="flex items-center">
-                                <label for="file" class="relative cursor-pointer bg-white dark:bg-[#252526] rounded-md font-medium text-zinc-800 dark:text-zinc-300 hover:text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-zinc-500 px-1">
-                                    <span class="text-[#007ACC] hover:underline">Upload a file</span>
-                                    <input id="file" name="file" type="file" class="sr-only" accept=".pdf,.png,.jpg,.jpeg" onchange="document.getElementById('file-name').textContent = this.files[0] ? 'Selected: ' + this.files[0].name : ''">
-                                </label>
+                                <span class="text-[#007ACC] font-medium">Upload a file</span>
                                 <p class="pl-1">or drag and drop</p>
                             </div>
-                            <p id="file-name" class="mt-2 text-xs font-semibold text-white"></p>
+                            <p id="file-name" class="mt-2 text-xs font-bold text-[#007ACC] dark:text-[#519ABA]"></p>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-500">
                             PNG, JPG, PDF up to 5MB
                         </p>
                     </div>
-                </div>
+                    <input id="file" name="file" type="file" class="sr-only" accept=".pdf,.png,.jpg,.jpeg" onchange="document.getElementById('file-name').textContent = this.files[0] ? 'Selected: ' + this.files[0].name : ''">
+                </label>
                 @error('file')
                     <p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                 @enderror
@@ -88,4 +86,48 @@
         </div>
     </form>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file');
+    const fileNameDisplay = document.getElementById('file-name');
+
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, highlight, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, unhighlight, false);
+    });
+
+    function highlight(e) {
+        dropZone.classList.add('border-[#007ACC]', 'bg-[#E4E6F1]', 'dark:bg-[#2A2D2E]');
+    }
+
+    function unhighlight(e) {
+        dropZone.classList.remove('border-[#007ACC]', 'bg-[#E4E6F1]', 'dark:bg-[#2A2D2E]');
+    }
+
+    dropZone.addEventListener('drop', handleDrop, false);
+
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if(files.length > 0) {
+            fileInput.files = files;
+            fileNameDisplay.textContent = 'Selected: ' + files[0].name;
+        }
+    }
+</script>
 @endsection

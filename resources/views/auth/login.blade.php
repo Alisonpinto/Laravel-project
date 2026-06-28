@@ -47,6 +47,27 @@
                 </button>
             </div>
         </form>
+
+        <!-- Quick Login Section -->
+        <div class="mt-6 flex flex-col gap-4">
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300 dark:border-[#444444]"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-[#F3F4F6] dark:bg-[#252526] text-gray-500 dark:text-gray-400 rounded-full">Or quick login as</span>
+                </div>
+            </div>
+            
+            <div class="flex gap-3">
+                <button type="button" onclick="document.getElementById('email').value='alisonpinto955@gmail.com'; document.getElementById('password').value='5024148'; document.querySelector('form').submit();" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 dark:border-[#444444] rounded-lg shadow-sm text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#1E1E1E] hover:bg-gray-50 dark:hover:bg-[#2A2D2E] focus:outline-none transition-colors">
+                    Student
+                </button>
+                <button type="button" onclick="document.getElementById('email').value='jawaan2720@gmail.com'; document.getElementById('password').value='5024125'; document.querySelector('form').submit();" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 dark:border-[#444444] rounded-lg shadow-sm text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#1E1E1E] hover:bg-gray-50 dark:hover:bg-[#2A2D2E] focus:outline-none transition-colors">
+                    Faculty
+                </button>
+            </div>
+        </div>
     </div>
     
     <div class="px-8 py-5 bg-gray-50 dark:bg-[#1E1E1E] border-t border-gray-200 dark:border-[#333333] text-center">
