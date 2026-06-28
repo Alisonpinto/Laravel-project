@@ -3,6 +3,10 @@
 ## Project Overview
 The Information Management System (IMS) is a Laravel-based web application designed to manage and track academic details for a college. It provides dedicated portals for Students, Faculty, and Administrators to facilitate profile management, achievement submissions, and verification workflows. 
 
+## Screenshots
+<img src="public/Screenshot%202026-06-28%20214423.png" alt="Screenshot 1" width="800">
+<img src="public/Screenshot%202026-06-28%20214620.png" alt="Screenshot 2" width="800">
+
 ## Features
 - **Role-based Access Control:** Dedicated interfaces for `student`, `faculty`, and `admin` roles.
 - **VS Code Theme Aesthetic:** A clean, developer-friendly UI with light and dark mode toggles mimicking the VS Code editor.
@@ -73,8 +77,8 @@ If you seeded the database using the command above, the following default test a
 | Role | Email | Password |
 | :--- | :--- | :--- |
 | **Admin** | admin@fcrit.ac.in | password |
-| **Faculty** | faculty@fcrit.ac.in | password |
-| **Student** | student@fcrit.ac.in | password |
+| **Faculty** | jawaan2720@gmail.com | 5024125 |
+| **Student** | alisonpinto955@gmail.com | 5024148 |
 
 ---
 **Author:** Alison Pinto  
