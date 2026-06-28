@@ -59,7 +59,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-3">
+            <div class="flex flex-col sm:flex-row gap-3">
                 <button type="button" onclick="document.getElementById('email').value='alisonpinto955@gmail.com'; document.getElementById('password').value='5024148'; document.querySelector('form').submit();" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 dark:border-[#444444] rounded-lg shadow-sm text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#1E1E1E] hover:bg-gray-50 dark:hover:bg-[#2A2D2E] focus:outline-none transition-colors">
                     Student
                 </button>

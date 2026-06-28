@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mb-6 flex items-center justify-between">
+<div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
     <div>
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Submit Achievement</h2>
         <p class="text-gray-600 dark:text-gray-400 mt-1">Upload a new certificate or record.</p>
@@ -16,6 +16,16 @@
         @csrf
         
         <div class="p-6 sm:p-8 space-y-6">
+            @if ($errors->any())
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <span class="font-medium">Please fix the following errors:</span>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             
             <div>
                 <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Achievement Title</label>

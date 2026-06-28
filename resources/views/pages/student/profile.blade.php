@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mb-6 flex items-center justify-between">
+<div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
     <div>
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Student Profile</h2>
         <p class="text-gray-600 dark:text-gray-400 mt-1">Manage your academic details.</p>

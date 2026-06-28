@@ -5,7 +5,7 @@
     
     <!-- Hero Header -->
     <div class="mb-16">
-        <h1 class="text-4xl sm:text-5xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-6">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-6 px-4">
             Information Management System (IMS)
         </h1>
         <p class="text-[15px] text-gray-600 dark:text-[#858585]">

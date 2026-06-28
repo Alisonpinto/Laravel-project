@@ -69,10 +69,13 @@
     @endphp
 
     <!-- Main Workspace -->
-    <div class="flex-1 flex overflow-hidden">
+    <div class="flex-1 flex overflow-hidden relative">
         
+        <!-- Mobile Overlay -->
+        <div id="mobile-overlay" class="absolute inset-0 bg-black/50 z-20 hidden md:hidden cursor-pointer"></div>
+
         <!-- 2. Explorer Panel -->
-        <div class="w-64 bg-[#F3F3F3] dark:bg-[#181818] border-r border-[#E5E5E5] dark:border-[#333333] flex flex-col flex-shrink-0 z-10 transition-colors duration-200">
+        <div id="explorer-panel" class="w-64 bg-[#F3F3F3] dark:bg-[#181818] border-r border-[#E5E5E5] dark:border-[#333333] flex flex-col flex-shrink-0 z-30 transition-transform duration-300 absolute md:relative h-full -translate-x-full md:translate-x-0">
             <!-- Explorer Header -->
             <div class="h-9 px-4 flex items-center justify-between text-[11px] font-semibold tracking-wider text-[#6F6F6F] dark:text-[#CCCCCC] uppercase">
                 Explorer
@@ -136,7 +139,19 @@
             <!-- Tabs -->
             <div class="h-9 bg-[#ECECEC] dark:bg-[#252526] flex items-center overflow-x-auto overflow-y-hidden border-b border-[#E5E5E5] dark:border-[#1E1E1E] scrollbar-hide transition-colors duration-200">
                 
-                <a href="/" class="h-full px-4 flex items-center {{ $isWelcome ? 'bg-white dark:bg-[#1E1E1E] border-t border-t-[#007ACC] text-[#333333] dark:text-white' : 'bg-[#ECECEC] dark:bg-[#2D2D2D] border-t border-transparent text-[#969696] hover:bg-white dark:hover:bg-[#1E1E1E]' }} cursor-pointer min-w-fit border-r border-[#E5E5E5] dark:border-[#333333] group transition-colors">
+                <!-- Hamburger Menu Button (Mobile Only) -->
+                <button id="mobile-menu-btn" class="md:hidden sticky left-0 z-10 flex-shrink-0 px-3 h-full flex items-center justify-center bg-[#ECECEC] dark:bg-[#252526] text-[#969696] hover:text-black dark:hover:text-white border-r border-[#E5E5E5] dark:border-[#333333] hover:bg-[#D4D4D4] dark:hover:bg-[#333333] transition-colors">
+                    <i data-lucide="menu" class="w-4 h-4"></i>
+                </button>
+
+                <!-- IMS Title (Mobile Only) -->
+                <div class="md:hidden flex items-center px-4 font-bold text-sm tracking-wider text-[#333333] dark:text-[#CCCCCC]">
+                    IMS
+                </div>
+                
+                <!-- Tabs Wrapper -->
+                <div class="hidden md:flex h-full items-center">
+                    <a href="/" class="h-full px-4 flex items-center {{ $isWelcome ? 'bg-white dark:bg-[#1E1E1E] border-t border-t-[#007ACC] text-[#333333] dark:text-white' : 'bg-[#ECECEC] dark:bg-[#2D2D2D] border-t border-transparent text-[#969696] hover:bg-white dark:hover:bg-[#1E1E1E]' }} cursor-pointer min-w-fit border-r border-[#E5E5E5] dark:border-[#333333] group transition-colors">
                     <i data-lucide="file-code" class="w-4 h-4 mr-2 text-[#519ABA]"></i>
                     <span class="text-[13px] whitespace-nowrap">welcome.blade.php</span>
                     <i data-lucide="x" class="w-3 h-3 ml-3 text-[#969696] hover:text-black dark:hover:text-white hover:bg-[#D4D4D4] dark:hover:bg-[#333333] rounded-md p-0.5 {{ $isWelcome ? 'opacity-100' : 'opacity-0 group-hover:opacity-100' }}"></i>
@@ -167,6 +182,7 @@
                     <i data-lucide="x" class="w-3 h-3 ml-3 text-[#969696] hover:text-black dark:hover:text-white hover:bg-[#D4D4D4] dark:hover:bg-[#333333] rounded-md p-0.5 {{ $isAdminDashboard ? 'opacity-100' : 'opacity-0 group-hover:opacity-100' }}"></i>
                 </a>
                 @endauth
+                </div>
                 
                 <!-- Theme Toggle Button in Tabs Bar -->
                 <div class="ml-auto pr-4 flex items-center h-full">
@@ -178,7 +194,7 @@
             </div>
 
             <!-- Breadcrumbs -->
-            <div class="h-6 flex items-center px-4 text-[13px] text-[#6F6F6F] dark:text-[#969696] bg-white dark:bg-[#1E1E1E] border-b border-[#E5E5E5] dark:border-[#333333] transition-colors duration-200">
+            <div class="hidden md:flex h-6 items-center px-4 text-[13px] text-[#6F6F6F] dark:text-[#969696] bg-white dark:bg-[#1E1E1E] border-b border-[#E5E5E5] dark:border-[#333333] transition-colors duration-200">
                 <span>ims</span>
                 <i data-lucide="chevron-right" class="w-3 h-3 mx-1"></i>
                 <span>resources</span>
@@ -281,6 +297,27 @@
                 localStorage.theme = 'dark';
             }
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const explorerPanel = document.getElementById('explorer-panel');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function toggleMenu() {
+            if (explorerPanel) {
+                explorerPanel.classList.toggle('-translate-x-full');
+            }
+            if (mobileOverlay) {
+                mobileOverlay.classList.toggle('hidden');
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+        }
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', toggleMenu);
+        }
     </script>
 </body>
 </html>
