@@ -5,10 +5,10 @@
     
     <!-- Hero Header -->
     <div class="mb-16">
-        <h1 class="text-4xl sm:text-5xl md:text-4xl font-extrabold tracking-tight text-white leading-tight mb-6">
+        <h1 class="text-4xl sm:text-5xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-6">
             Information Management System (IMS)
         </h1>
-        <p class="text-[15px] text-[#858585]">
+        <p class="text-[15px] text-gray-600 dark:text-[#858585]">
             by <a href="https://fcrit.ac.in" target="_blank" rel="noopener noreferrer" class="text-[#007ACC] hover:text-[#519ABA] hover:underline transition-colors">FCRIT</a>
         </p>
     </div>
@@ -17,15 +17,15 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl px-4">
         
         <!-- Student Portal Card -->
-        <div class="group relative rounded-2xl bg-[#252526] border border-[#333333] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,122,204,0.2)] hover:border-[#007ACC]/50 flex flex-col items-center text-center">
+        <div class="group relative rounded-2xl bg-gray-50 dark:bg-[#252526] border border-gray-200 dark:border-[#333333] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,122,204,0.2)] hover:border-[#007ACC]/50 flex flex-col items-center text-center">
             
-            <div class="w-16 h-16 rounded-xl bg-[#1E1E1E] flex items-center justify-center mb-6 text-[#007ACC] shadow-inner group-hover:scale-110 transition-transform duration-300 border border-[#333333]">
+            <div class="w-16 h-16 rounded-xl bg-white dark:bg-[#1E1E1E] flex items-center justify-center mb-6 text-[#007ACC] shadow-sm dark:shadow-inner group-hover:scale-110 transition-transform duration-300 border border-gray-100 dark:border-[#333333]">
                 <i data-lucide="graduation-cap" class="w-8 h-8"></i>
             </div>
             
-            <h3 class="text-2xl font-bold text-white mb-3">Student Portal</h3>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Student Portal</h3>
             
-            <ul class="text-[#969696] text-[15px] mb-8 flex-grow space-y-2">
+            <ul class="text-gray-600 dark:text-[#969696] text-[15px] mb-8 flex-grow space-y-2">
                 <li>Access profile</li>
                 <li>Submit achievements</li>
                 <li>Track approval status</li>
@@ -37,15 +37,15 @@
         </div>
 
         <!-- Faculty Portal Card -->
-        <div class="group relative rounded-2xl bg-[#252526] border border-[#333333] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] hover:border-purple-500/50 flex flex-col items-center text-center">
+        <div class="group relative rounded-2xl bg-gray-50 dark:bg-[#252526] border border-gray-200 dark:border-[#333333] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] hover:border-purple-500/50 flex flex-col items-center text-center">
             
-            <div class="w-16 h-16 rounded-xl bg-[#1E1E1E] flex items-center justify-center mb-6 text-purple-500 shadow-inner group-hover:scale-110 transition-transform duration-300 border border-[#333333]">
+            <div class="w-16 h-16 rounded-xl bg-white dark:bg-[#1E1E1E] flex items-center justify-center mb-6 text-purple-500 shadow-sm dark:shadow-inner group-hover:scale-110 transition-transform duration-300 border border-gray-100 dark:border-[#333333]">
                 <i data-lucide="shield-user" class="w-8 h-8"></i>
             </div>
             
-            <h3 class="text-2xl font-bold text-white mb-3">Faculty Portal</h3>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Faculty Portal</h3>
             
-            <ul class="text-[#969696] text-[15px] mb-8 flex-grow space-y-2">
+            <ul class="text-gray-600 dark:text-[#969696] text-[15px] mb-8 flex-grow space-y-2">
                 <li>Review submissions</li>
                 <li>Approve or Reject</li>
                 <li>View reports</li>

@@ -10,7 +10,7 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Profile Card -->
-    <div class="bg-white dark:bg-[#252526] rounded-2xl shadow-sm border border-gray-200 dark:border-[#333333] p-6 hover:shadow-md transition-shadow group">
+    <div class="bg-gray-50 dark:bg-[#252526] rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-200 dark:border-[#333333] p-6 hover:shadow-lg transition-shadow group">
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                 <div class="p-2 bg-zinc-100 dark:bg-[#333333] text-zinc-800 dark:text-zinc-300 rounded-lg">
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Achievements Card -->
-    <div class="bg-white dark:bg-[#252526] rounded-2xl shadow-sm border border-gray-200 dark:border-[#333333] p-6 hover:shadow-md transition-shadow group">
+    <div class="bg-gray-50 dark:bg-[#252526] rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-200 dark:border-[#333333] p-6 hover:shadow-lg transition-shadow group">
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                 <div class="p-2 bg-zinc-100 dark:bg-[#333333] text-zinc-800 dark:text-zinc-300 rounded-lg">
